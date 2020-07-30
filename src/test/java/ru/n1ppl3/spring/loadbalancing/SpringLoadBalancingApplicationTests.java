@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
+import ru.n1ppl3.spring.loadbalancing.dto.MyKotlinDataClass;
 
 import java.io.IOException;
+import java.util.UUID;
 import java.util.function.Consumer;
 
 import static ru.n1ppl3.spring.loadbalancing.utils.SunHttpServer.startTestServer;
@@ -36,6 +38,8 @@ class SpringLoadBalancingApplicationTests {
 
 	@Test
 	void roundRobinBalancingTest() {
+		MyKotlinDataClass myKotlinDataClass = new MyKotlinDataClass(UUID.randomUUID());
+		System.err.println(myKotlinDataClass);
 		Assertions.assertTrue(sayHelloClient.hi("").doOnNext(System.err::println).block().contains("" + port1));
 		Assertions.assertTrue(sayHelloClient.hi("").doOnNext(System.err::println).block().contains("" + port2));
 		Assertions.assertTrue(sayHelloClient.hello("").doOnNext(System.err::println).block().contains("" + port1));
