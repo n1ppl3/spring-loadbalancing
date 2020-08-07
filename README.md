@@ -1,2 +1,2 @@
 # spring-loadbalancing
-Spring LoadBalancing example (java11, kotlin, com.sun.net.httpserver.HttpServer)
+Spring LoadBalancing example (java11, kotlin, resilience4j, com.sun.net.httpserver.HttpServer)
