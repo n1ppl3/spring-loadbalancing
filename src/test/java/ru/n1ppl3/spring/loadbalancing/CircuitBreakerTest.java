@@ -39,7 +39,7 @@ class CircuitBreakerTest {
             CircuitBreakerConfig circuitBreakerConfig = CircuitBreakerConfig.custom()
                 .waitDurationInOpenState(Duration.ofSeconds(SECONDS_TO_WAIT))
                 .writableStackTraceEnabled(false) // не печатать stacktrace у CallNotPermittedException
-                .failureRateThreshold(0.333F)
+                .failureRateThreshold(30) // 30%
                 .minimumNumberOfCalls(STAT_CALLS) // сколько вызовов нужно набрать для статистики
                 .build();
             this.circuitBreaker = CircuitBreaker.of("myCircuitBreaker", circuitBreakerConfig);
