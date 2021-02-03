@@ -10,12 +10,15 @@ import static ru.n1ppl3.spring.loadbalancing.SayHelloClient.SERVICE_ID;
 @Configuration
 public class SayHelloConfiguration {
 
+    public static final int PORT1 = 6666;
+    public static final int PORT2 = 9999;
+
     @Bean
     @Primary
     ServiceInstanceListSupplier serviceInstanceListSupplier() {
         return ServiceInstanceListSupplier.fixed(SERVICE_ID)
-                .instance(6666)
-                .instance(9999)
+                .instance(PORT1)
+                .instance(PORT2)
                 .build();
     }
 

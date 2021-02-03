@@ -11,16 +11,17 @@ import ru.n1ppl3.spring.loadbalancing.dto.MyKotlinDataClass;
 
 import java.io.IOException;
 import java.util.UUID;
-import java.util.function.Consumer;
 
+import static ru.n1ppl3.spring.loadbalancing.SayHelloConfiguration.PORT1;
+import static ru.n1ppl3.spring.loadbalancing.SayHelloConfiguration.PORT2;
 import static ru.n1ppl3.spring.loadbalancing.utils.SunHttpServer.startTestServer;
 
 @SpringBootTest
 @Import({SpringLoadBalancingApplicationTests.MyTestConfiguration.class})
 class SpringLoadBalancingApplicationTests {
 
-	private static final int port1 = 6666;
-	private static final int port2 = 9999;
+	private static final int port1 = PORT1;
+	private static final int port2 = PORT2;
 
 	static class MyTestConfiguration {
 		@Bean

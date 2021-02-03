@@ -12,6 +12,9 @@ import java.net.InetSocketAddress;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import static ru.n1ppl3.spring.loadbalancing.SayHelloConfiguration.PORT1;
+import static ru.n1ppl3.spring.loadbalancing.SayHelloConfiguration.PORT2;
+
 public abstract class SunHttpServer {
     private static final Logger logger = LoggerFactory.getLogger(SunHttpServer.class);
 
@@ -22,8 +25,8 @@ public abstract class SunHttpServer {
      *
      */
     public static void main(String[] args) throws Exception {
-        startTestServer(6666);
-        startTestServer(9999);
+        startTestServer(PORT1);
+        startTestServer(PORT2);
     }
 
 
